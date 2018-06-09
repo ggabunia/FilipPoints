@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+<h1 class="margined-title text-center"> Add Points To a Person</h1>
+<form class=""  method="post">
+    {% csrf_token %}
+      {% bootstrap_form form %}
+    <input type="submit" name="" value="Add" class="btn btn-success">
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <dl class="dl-horizontal">
+            <dt>Name</dt>
+            <dd>{{object.first_name}}</dd>
+            <dt>Surname</dt>
+            <dd>{{object.last_name}}</dd>
+            <dt>Last Updated</dt>
+            <dd>{{object.last_update|date:'Y-m-d H:m'}}</dd>
+            <dt>Points</dt>
+            <dd>{{object.points}}</dd>
+        </dl>
+        {% if user.is_authenticated %}
+            <p>
+              <a class="btn btn-success" href="{% url 'manager:add_points' pk=object.pk %}">Add Points</a>
+              <a class="btn btn-warning" href="{% url 'manager:edit' pk=object.pk %}">Edit</a>
+            </p>
+        {% endif %}
+
+    </div>
+</div>
+{% if object.points_history.all %}
+<table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>
+            Date
+        </th>
+        <th>
+        Amount
+      </th>
+      <th>
+      Description
+    </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in object.points_history.all %}
+      <tr>
+        <td>
+            {{item.date|date:'Y-m-d H:m'}}
+        </td>
+        <td>
+            {{item.awarded_points}} Points
+        </td>
+        <td>
+            {{item.description}}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
+{% endblock content %}

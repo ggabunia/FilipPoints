@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+    <h1 class="margined-title text-center">EditPerson</h1>
+
+    <form class=""  method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+    <input type="submit" class="btn btn-primary" name="" value="Edit">
+    </form>
+{% endblock %}

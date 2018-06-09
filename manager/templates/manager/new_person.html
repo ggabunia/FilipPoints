@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+    <h1 class="margined-title text-center">Add New Person</h1>
+
+    <form class="" action="{% url 'manager:new' %}" method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+    <input type="submit" class="btn btn-primary" name="" value="Add">
+    </form>
+{% endblock %}
