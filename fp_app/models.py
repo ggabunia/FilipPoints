@@ -22,3 +22,6 @@ class AddedPoints(models.Model):
     date = models.DateTimeField(default = datetime.now)
     class Meta():
         ordering = ['-date']
+
+    def __str__(self):
+        return "{} - {} - {} points".format(self.person, self.date.strftime("%y-%m-%d %H:%M"), self.awarded_points)

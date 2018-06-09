@@ -5,9 +5,15 @@ from braces.views import SelectRelatedMixin, PrefetchRelatedMixin
 from . import models
 
 
+class Index(ListView):
+    model = models.Person
+    ordering = ['-points']
+    template_name = 'fp_app/index.html'
+
 class PersonList(ListView):
     model = models.Person
     ordering = ['-points']
+
 
 class PersonDetail(DetailView):
     model = models.Person

@@ -1,14 +1,21 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block content %}
 
-<h1 class= 'margined-title text-center'>All awarded FilipPoints</h1>
+<h1 class= 'margined-title text-center'>Welcome to FilipPoints!</h1>
 
-<h3>
-
-</h3>
 <div class="row">
-  <div class="col-lg-10 col-lg-offset-1">
+  <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
+    <div class="text-center">
+        <img class="img-thumbnail" src="{% static 'images/filip.jpg' %}" alt="Filip.jpg">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-lg-12">
+    <h3 class="text-center">Top 10</h3>
     <table class="table table-bordered table-striped table-responsive">
       <thead>
         <tr>
@@ -19,18 +26,13 @@
         </tr>
       </thead>
       <tbody>
-        {% for person in person_list %}
+        {% for person in person_list|slice:"10" %}
           <tr>
             <td>{{person.first_name}}</td>
             <td>{{person.last_name}}</td>
             <td>{{person.points}}</td>
             <td class="text-center">
                 <a class="btn btn-primary" href="{% url 'filip_points:details' pk=person.pk %}">Details</a>
-                {% if user.is_authenticated %}
-                    <a class="btn btn-warning" href="{% url 'manager:edit' pk=person.pk %}">Edit</a>
-                    <a class="btn btn-success" href="{% url 'manager:add_points' pk=person.pk %}">Add Points</a>
-                {% endif %}
-
             </td>
           </tr>
         {% endfor %}
@@ -38,6 +40,8 @@
       </tbody>
     </table>
   </div>
+
+
 </div>
 
 

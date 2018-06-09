@@ -23,24 +23,33 @@
   <body>
     <nav class="navbar navbar-inverse  mynav" role="navigation" id="navbar">
        			<div class="container ">
-
+              <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </button>
                <a class="navbar-brand mynav" href="{% url 'filip_points:index' %}">Filip Points</a>
-
-       					<ul class="nav navbar-nav navbar-right">
-       						{% if user.is_authenticated %}
-                        <li><a href="{% url 'manager:new' %}" class="btn btn-simple">New Person</a></li>
-
-
-                         <li><a href="{% url 'manager:logout' %}" class="btn btn-simple">Log out</a></li>
-       						{% else %}
-
-       						      <li><a href="{% url 'manager:login' %}" class="btn btn-simple">Log in</a></li>
-
-       						{% endif %}
-       					</ul>
+             </div>
+               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 <ul class="nav navbar-nav">
+                     <li><a href="{% url 'filip_points:index' %}" class="btn btn-simple">Home</a></li>
+                     <li><a href="{% url 'filip_points:all' %}" class="btn btn-simple">All People</a></li>
+                 </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                         <li><a href="{% url 'manager:new' %}" class="btn btn-simple">New Person</a></li>
 
 
+                          <li><a href="{% url 'manager:logout' %}" class="btn btn-simple">Log out</a></li>
+                    {% else %}
 
+                          <li><a href="{% url 'manager:login' %}" class="btn btn-simple">Log in</a></li>
+
+                    {% endif %}
+                  </ul>
+               </div>
        			</div>
        		</nav>
            <div class="container mycontent">

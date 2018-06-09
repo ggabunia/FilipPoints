@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Are you sure you want to remove this? </h3>
+
+  <dl class="dl-horizontal">
+      <dt>Person</dt>
+      <dd>
+          {{object.person}}
+      </dd>
+      <dt>Points</dt>
+      <dd>{{object.awarded_points}}</dd>
+      <dt>
+          Description
+      </dt>
+      <dd>
+      {{object.description}}</dd>
+  </dl>
+
+  <form class="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Confirm Removal" class="btn btn-danger btn-large">
+  	<a href="{% url 'filip_points:details' pk=object.person.pk %}" class="btn btn-simple btn-large btn-default">Cancel</a>
+
+  </form>
+{% endblock content %}

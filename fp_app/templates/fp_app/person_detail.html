@@ -11,7 +11,7 @@
             <dt>Surname</dt>
             <dd>{{object.last_name}}</dd>
             <dt>Last Updated</dt>
-            <dd>{{object.last_update|date:'Y-m-d H:m'}}</dd>
+            <dd>{{object.last_update|date:'Y-m-d H:i'}}</dd>
             <dt>Points</dt>
             <dd>{{object.points}}</dd>
         </dl>
@@ -19,6 +19,7 @@
             <p>
               <a class="btn btn-success" href="{% url 'manager:add_points' pk=object.pk %}">Add Points</a>
               <a class="btn btn-warning" href="{% url 'manager:edit' pk=object.pk %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'manager:delete' pk=object.pk %}">Delete</a>
             </p>
         {% endif %}
 
@@ -37,13 +38,17 @@
       <th>
       Description
     </th>
+    {% if user.is_authenticated %}
+        <th></th>
+    {% endif %}
+
       </tr>
     </thead>
     <tbody>
       {% for item in object.points_history.all %}
       <tr>
         <td>
-            {{item.date|date:'Y-m-d H:m'}}
+            {{item.date|date:'Y-m-d H:i'}}
         </td>
         <td>
             {{item.awarded_points}} Points
@@ -51,6 +56,11 @@
         <td>
             {{item.description}}
         </td>
+        {% if user.is_authenticated %}
+          <td>
+              <a href="{% url 'manager:remove_points' pk=item.pk %}" class="btn btn-danger">Remove</a>
+          </td>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
