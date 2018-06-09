@@ -2,47 +2,110 @@
 {% load staticfiles %}
 {% block content %}
 
-<h1 class= 'margined-title text-center'>Welcome to FilipPoints!</h1>
 
-<div class="row">
-  <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
-    <div class="text-center">
-        <img class="img-thumbnail" src="{% static 'images/filip.jpg' %}" alt="Filip.jpg">
-    </div>
-  </div>
-</div>
+<!-- Intro Section -->
+	<div class="hero-section">
+		<div class="hero-content">
+			<div class="hero-center">
+			<!-- 	<img src="img/big-logo.png" alt=""> -->
+				<p class="slider-text">Get the FilipPoints!</p>
+			</div>
+		</div>
+		<!-- slider -->
+		<div id="hero-slider" class="owl-carousel">
 
-<div class="row">
-
-  <div class="col-lg-12">
-    <h3 class="text-center">Top 10</h3>
-    <table class="table table-bordered table-striped table-responsive">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Points</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for person in person_list|slice:"10" %}
-          <tr>
-            <td>{{person.first_name}}</td>
-            <td>{{person.last_name}}</td>
-            <td>{{person.points}}</td>
-            <td class="text-center">
-                <a class="btn btn-primary" href="{% url 'filip_points:details' pk=person.pk %}">Details</a>
-            </td>
-          </tr>
-        {% endfor %}
-
-      </tbody>
-    </table>
-  </div>
+			<div class="item  hero-item" data-bg="{% static 'images/filip.jpg' %}"></div>
+      <div class="item  hero-item" data-bg="{% static 'images/filip2.jpg' %}"></div>
+        <div class="item  hero-item" data-bg="{% static 'images/filip3.jpg' %}"></div>
+		</div>
+	</div>
+	<!-- Intro Section -->
 
 
-</div>
+	<!-- About section -->
+	<div class="about-section">
+		<div class="overlay"></div>
+		<!-- card section -->
+		<div class="card-section">
+			<div class="container">
+				<div class="row">
+					<!-- single card -->
+					<div class="col-md-4 col-sm-6">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-018-laptop-1"></i>
+							</div>
+							<h2>Earn Your Points!</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+					<!-- single card -->
+					<div class="col-md-4 col-sm-6">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-011-compass"></i>
+							</div>
+							<h2>Some Stuff!</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+					<!-- single card -->
+					<div class="col-md-4 col-sm-12">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-012-cube"></i>
+							</div>
+							<h2>Earn your gifts!</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- card section end-->
+
+
+		<!-- About contant -->
+		<div class="about-contant my-container">
+			<div class="container">
+				<div class="section-title">
+					<h2><span>Top 10</span> People with points</h2>
+				</div>
+				<div class="row">
+          <table class="table table-bordered table-responsive index-table">
+            <thead>
+              <tr>
+								<th>#</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Points</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for person in person_list %}
+                <tr>
+									<td>{{forloop.counter}}</td>
+                  <td>{{person.first_name}}</td>
+                  <td>{{person.last_name}}</td>
+                  <td>{{person.points}}</td>
+                  <td class="text-center">
+                      <a class="btn btn-primary" href="{% url 'filip_points:details' pk=person.pk %}">Details</a>
+                  </td>
+                </tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<!-- About section end -->
+
+
 
 
 {% endblock content %}

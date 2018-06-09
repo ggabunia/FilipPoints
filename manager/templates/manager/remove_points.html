@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>Are you sure you want to remove this? </h3>
+<div class="container my-container my-margined">
+  <h3 class="login-title">Are you sure you want to remove this? </h3>
 
   <dl class="dl-horizontal">
       <dt>Person</dt>
@@ -23,4 +24,5 @@
   	<a href="{% url 'filip_points:details' pk=object.person.pk %}" class="btn btn-simple btn-large btn-default">Cancel</a>
 
   </form>
+</div>
 {% endblock content %}

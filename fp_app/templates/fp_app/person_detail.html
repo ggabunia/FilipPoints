@@ -3,68 +3,96 @@
 
 
 {% block content %}
-<div class="row">
-    <div class="col-lg-12">
-        <dl class="dl-horizontal">
-            <dt>Name</dt>
-            <dd>{{object.first_name}}</dd>
-            <dt>Surname</dt>
-            <dd>{{object.last_name}}</dd>
-            <dt>Last Updated</dt>
-            <dd>{{object.last_update|date:'Y-m-d H:i'}}</dd>
-            <dt>Points</dt>
-            <dd>{{object.points}}</dd>
-        </dl>
-        {% if user.is_authenticated %}
-            <p>
-              <a class="btn btn-success" href="{% url 'manager:add_points' pk=object.pk %}">Add Points</a>
-              <a class="btn btn-warning" href="{% url 'manager:edit' pk=object.pk %}">Edit</a>
-                <a class="btn btn-danger" href="{% url 'manager:delete' pk=object.pk %}">Delete</a>
-            </p>
-        {% endif %}
 
-    </div>
-</div>
-{% if object.points_history.all %}
-<table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>
-            Date
-        </th>
-        <th>
-        Amount
-      </th>
-      <th>
-      Description
-    </th>
-    {% if user.is_authenticated %}
-        <th></th>
-    {% endif %}
+<!-- Page header -->
+	<div class="page-top-section">
+		<div class="overlay"></div>
+		<div class="container text-right">
+			<div class="page-info">
+				<h2>Person Details</h2>
+				<div class="page-links">
+					<a href="/">Home</a>
+					<span>Details</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page header end-->
 
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in object.points_history.all %}
-      <tr>
-        <td>
-            {{item.date|date:'Y-m-d H:i'}}
-        </td>
-        <td>
-            {{item.awarded_points}} Points
-        </td>
-        <td>
-            {{item.description}}
-        </td>
-        {% if user.is_authenticated %}
-          <td>
-              <a href="{% url 'manager:remove_points' pk=item.pk %}" class="btn btn-danger">Remove</a>
-          </td>
-        {% endif %}
-      </tr>
-      {% endfor %}
-    </tbody>
-</table>
 
-{% endif %}
+	<!-- page section -->
+	<div class="page-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-sm-7 blog-posts">
+					<!-- Single Post -->
+					<div class="single-post">
+
+						<div class="post-content">
+							<h2 class="post-title">{{object}}</h2>
+							<div class="post-meta">
+								<a href="">{{object.points}} Points</a>
+								<a href="">last update: {{object.last_update|date:'Y-m-d H:i'}}</a>
+
+							</div>
+							<div class="site-accordions">
+
+                  {% if object.points_history.all %}
+									<div class="panel-group" id="accordion">
+										<!-- Single Accordions -->
+
+                      {% for item in object.points_history.all %}
+										<div class="panel">
+											<div class="panel-heading">
+												<h4 class="panel-title">  {{item.date|date:'Y-m-d H:i'}} - {{item.awarded_points}} points</h4>
+												<a data-toggle="collapse" data-parent="#accordion" href="#accordion{{item.pk}}" class="collapsed" aria-expanded="false"></a>
+											</div>
+											<div id="accordion{{item.pk}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+												<div class="panel-body">
+													<p>
+                              {{item.description}}
+                          </p>
+                          {% if user.is_authenticated %}
+                              	<p>
+                                    <a href="{% url 'manager:remove_points' pk=item.pk %}" class="btn btn-danger rmv-btn">Remove</a>
+                                </p>
+                          {% endif %}
+
+
+												</div>
+											</div>
+										</div>
+
+                    {% endfor %}
+
+									</div>
+
+                  {% endif %}
+								</div>
+						</div>
+
+
+					</div>
+				</div>
+				<!-- Sidebar area -->
+				<div class="col-md-4 col-sm-5 sidebar">
+				  {% if user.is_authenticated %}
+					<!-- Single widget -->
+					<div class="widget-item">
+						<h2 class="widget-title">Actions</h2>
+						<ul class="tag">
+              <li><a href="{% url 'manager:add_points' pk=object.pk %}">Add Points</a></li>
+							<li class="my-danger"><a href="{% url 'manager:delete' pk=object.pk %}" class="my-danger">Delete Person</a></li>
+							<li class="my-warning"><a href="{% url 'manager:edit' pk=object.pk %}" class="my-warning">Edit Person</a></li>
+
+						</ul>
+					</div>
+		  {% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- page section end-->
+
+
 {% endblock content %}

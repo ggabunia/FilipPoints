@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
 {% block content %}
+<div class="container my-container my-margined">
     <h1 class="margined-title text-center">EditPerson</h1>
 
     <form class=""  method="post">
@@ -8,4 +9,5 @@
       {% bootstrap_form form %}
     <input type="submit" class="btn btn-primary" name="" value="Edit">
     </form>
+  </div>
 {% endblock %}
