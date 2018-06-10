@@ -1546,62 +1546,9 @@ ul {
 
 
 /* Tablet :768px. */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-	.test-overlay {
-		display: none;
-	}
-	#testimonial-slide .owl-dots {
-		top: 95%;
-		-webkit-transform: rotate(-90deg);
-		    -ms-transform: rotate(-90deg);
-		        transform: rotate(-90deg);
-		-webkit-transform-origin: left center;
-		    -ms-transform-origin: left center;
-		        transform-origin: left center;
-		left: 50%;
-		margin-left: -4px;
-	}
-	.card-section {
-		padding-bottom: 0;
-	}
-	.lab-card {
-		margin-bottom: 80px;
-	}
-	.promotion-section .promo-btn-area {
-		text-align: left;
-	}
-	.contact-section::after {
-		width: 100%;
-		right: 0;
-	}
-	.contact-info {
-		margin-bottom: 95px;
-	}
-	.col-push {
-		left: 0;
-	}
-	.col-pull {
-		right: 0;
-	}
-	.sv-card {
-		margin-bottom: 30px;
-	}
-	.newsletter-section h2 {
-		margin-bottom: 30px;
-	}
-	.circle-progress {
-		margin-bottom: 40px;
-	}
-	.icon-box {
-		margin-bottom: 30px;
-	}
-	.facts .fact {
-		margin-bottom: 40px;
-	}
-}
 
 /* Large Mobile :480px. */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 991px) {
 	.header-section .logo {
 		padding-top: 20px;
 		padding-bottom: 20px;
