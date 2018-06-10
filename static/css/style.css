@@ -293,7 +293,7 @@ ul {
 	color: #222;
 	position: relative;
 	font-family: "Roboto", sans-serif;
-	font-size: 15px;
+	font-size: 2em;
 	letter-spacing: 0.09em;
 	-webkit-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
@@ -1566,6 +1566,7 @@ ul {
 		display: block;
 		padding: 10px;
 		margin-right: 0;
+		font-size: 3em;
 	}
 	.header-section .menu-list li a:after {
 		left: 0%;
