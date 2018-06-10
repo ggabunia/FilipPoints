@@ -1705,6 +1705,7 @@ ul {
 
 	.index-table{
 		color: white;
+		font-size: 2em;
 	}
 .list-title{
 	margin-bottom: 50px;
@@ -1720,4 +1721,7 @@ ul {
 }
 .my-margined{
 	margin-top: 150px;
+}
+.with-bg{
+	background: #6a23b5;
 }
