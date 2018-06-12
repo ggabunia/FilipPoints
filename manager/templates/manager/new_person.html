@@ -7,10 +7,10 @@
 
     <h1 class="margined-title text-center">Add New Person</h1>
 
-    <form class="" action="{% url 'manager:new' %}" method="post">
+    <form class="my-form" action="{% url 'manager:new' %}" method="post">
       {% csrf_token %}
       {% bootstrap_form form %}
-    <input type="submit" class="btn btn-primary" name="" value="Add">
+    <input type="submit" class="btn btn-primary small-screen-btn" name="" value="Add">
     </form>
       </div>
 {% endblock %}

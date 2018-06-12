@@ -3,11 +3,17 @@
 
 {% block content %}
         <div class="container my-container my-margined">
-          <h2 class="login-title text-center">Log In</h2>
-          <form class="" method="post">
-              {% csrf_token %}
-              {% bootstrap_form form %}
-              <input type="submit" name="" value="Login" class="btn btn-default">
-          </form>
+          <div class="row">
+              <div class="col-lg-12 ">
+                <h2 class="login-title text-center">Log In</h2>
+                  <h3 class="login-title text-center">For Filip only!</h3>
+                <form class="my-form" method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input type="submit" name="" value="Login" class="btn btn-default small-screen-btn">
+                </form>
+              </div>
+          </div>
+
         </div>
 {% endblock content %}

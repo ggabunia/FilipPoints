@@ -4,10 +4,10 @@
 <div class="container my-container my-margined">
     <h1 class="margined-title text-center">EditPerson</h1>
 
-    <form class=""  method="post">
+    <form class="my-form"  method="post">
       {% csrf_token %}
       {% bootstrap_form form %}
-    <input type="submit" class="btn btn-primary" name="" value="Edit">
+    <input type="submit" class="btn btn-primary small-screen-btn" name="" value="Edit">
     </form>
   </div>
 {% endblock %}

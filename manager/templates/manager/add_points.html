@@ -7,7 +7,7 @@
 
 
 
-<form class=""  method="post">
+<form class="my-form"  method="post">
     {% csrf_token %}
 
    <div class="form-group">
@@ -21,7 +21,7 @@
 
 
     <input type="hidden" name="person_id" value="{{person.pk}}">
-    <input type="submit" name="" value="Add" class="btn btn-success">
+    <input type="submit" name="" value="Add" class="btn btn-success small-screen-btn">
 </form>
 </div>
 

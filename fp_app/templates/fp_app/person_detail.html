@@ -31,8 +31,8 @@
 						<div class="post-content">
 							<h2 class="post-title">{{object}}</h2>
 							<div class="post-meta">
-								<a href="">{{object.points}} Points</a>
-								<a href="">last update: {{object.last_update|date:'Y-m-d H:i'}}</a>
+								<a>{{object.points}} Points</a>
+								<a>last update: {{object.last_update|date:'Y-m-d H:i'}}</a>
 
 							</div>
 							<div class="site-accordions">
@@ -54,7 +54,7 @@
                           </p>
                           {% if user.is_authenticated %}
                               	<p>
-                                    <a href="{% url 'manager:remove_points' pk=item.pk %}" class="btn btn-danger rmv-btn">Remove</a>
+                                    <a href="{% url 'manager:remove_points' pk=item.pk %}" class="btn btn-danger rmv-btn small-screen-btn">Remove</a>
                                 </p>
                           {% endif %}
 
