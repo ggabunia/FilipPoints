@@ -83,7 +83,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for person in person_list %}
+              {% for person in person_list|slice:"10" %}
                 <tr>
 									<td>{{forloop.counter}}</td>
                   <td>{{person.first_name}}</td>
