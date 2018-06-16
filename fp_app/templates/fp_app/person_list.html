@@ -27,6 +27,7 @@
         <table class="table table-bordered table-responsive index-table">
           <thead>
             <tr>
+							<th>#</th>
               <th>Name</th>
               <th>Surname</th>
               <th>Points</th>
@@ -34,8 +35,9 @@
             </tr>
           </thead>
           <tbody>
-            {% for person in person_list|slice:"10" %}
+            {% for person in person_list %}
               <tr>
+								<td>{{forloop.counter}}</td>
                 <td>{{person.first_name}}</td>
                 <td>{{person.last_name}}</td>
                 <td>{{person.points}}</td>
