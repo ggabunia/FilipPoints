@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView,CreateView
 from django.http import HttpResponse, HttpResponseRedirect
 from braces.views import SelectRelatedMixin, PrefetchRelatedMixin
+
 from . import models
+
 
 
 class Index(ListView):

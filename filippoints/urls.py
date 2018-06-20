@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', include('fp_app.urls', namespace='filip_points')),
     path('manager/', include('manager.urls', namespace='manager')),
-
+    path('api/v1.0/', include('fp_api.urls', namespace='fp_api')),
+    path('api-auth/', include('rest_framework.urls')),
 ]

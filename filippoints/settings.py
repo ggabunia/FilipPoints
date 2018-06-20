@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'bootstrap3',
     'fp_app',
     'manager',
+    'fp_api',
 ]
 
 MIDDLEWARE = [
