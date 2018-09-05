@@ -106,3 +106,6 @@ venv.bak/
 .mypy_cache/
 
 /filippointsenv/
+
+**/.idea/workspace.xml
+**/.idea/tasks.xml
